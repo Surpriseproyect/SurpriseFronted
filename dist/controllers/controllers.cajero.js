@@ -1,6 +1,6 @@
 export const cajero = (req, res) => {
     let datos = {}
-    fetch("https://surprisefrontend.onrender.com/cajero")
+    fetch("https://surprisebackend.onrender.com/cajero")
     .then(res => res.json())
     .then(data => {
         datos = data

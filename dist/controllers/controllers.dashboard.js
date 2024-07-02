@@ -1,6 +1,6 @@
 export const dashboard = (req, res) => {
     let datos = {}
-    fetch("https://surprisefrontend.onrender.com/dashboard")
+    fetch("https://surprisebackend.onrender.com/dashboard")
     .then(res => res.json())
     .then(data => {
         datos = data
