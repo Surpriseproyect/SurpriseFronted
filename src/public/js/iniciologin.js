@@ -38,7 +38,7 @@ document.getElementById("registrar").addEventListener("click", async (e) => {
     };
 
     try {
-        const response = await fetch(`https://surprisebackend.onrender.com/usuario/usuario`, {
+        const response = await fetch(`https://surprisebackend.onrender.com/usuario`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
