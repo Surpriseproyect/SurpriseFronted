@@ -38,7 +38,7 @@ document.getElementById("registrar").addEventListener("click", async (e) => {
     };
 
     try {
-        const response = await fetch(`http://localhost:3000/usuario/usuario`, {
+        const response = await fetch(`https://surprisebackend.onrender.com/usuario/usuario`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ const loguear = async () => {
     const password = document.getElementById("password").value;
     const url = document.getElementById("url").value;
 
-    sessionStorage.setItem("urlSurprise", "http://localhost:3000");
+    sessionStorage.setItem("urlSurprise", "https://surprisebackend.onrender.com");
     const urlSurprise = sessionStorage.getItem("urlSurprise") + "/usuario/loginusuario";
 
     const options = {
