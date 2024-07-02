@@ -3,7 +3,7 @@ export const login = (req, res) => {
 }
 export const productos = (req, res) => {
     let datos = {}
-    fetch("http://localhost:3000/productos")
+    fetch("https://surprisefrontend.onrender.com/productos")
     .then(res => res.json())
     .then(data => {
         datos = data
