@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI';
+    user-select: none;
+}
+body{
+    margin: 0 auto;
+    max-width: 1200px;
+    font-family: "lato";
+    color: black;
+    background: url(../img/restaurant-interior.jpg) no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size:cover;
+    height: 100%;
+    width: 100%;
+}
+img {
+    pointer-events: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+img{
+    max-width: 100%;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 13%;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: +999;
+}
+header .logo{
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.navbar a{
+    position: relative;
+    font-size: 16px;
+    color: #fff;
+    margin-right: 30px;
+    text-decoration: none;
+}
+.navbar a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    bottom: -5px;
+    border-radius: 5px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: .5s ease;
+}
+.navbar a:hover:after{
+    transform: translateY(0);
+    opacity: 1;
+}
+.descarga{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: #999 1px solid;
+}
+.descarga > button{
+    margin-top: 20px;
+    height: 30px;
+    width: 150px;
+    border-radius: 10px;
+    border: none;
+}
+.container-items{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+} 
+.item{
+    border-radius: 10px;
+    border: 1px #999 solid;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: .2s;
+    margin-bottom: 10px;
+}
+.item:hover{
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 20);
+    transform: translateY(-5px);
+    transition: .2s;
+}
+.item img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+    transition: all .5s;
+}
+.item figure{
+    overflow: hidden;
+}
+.info-producto{
+    padding: 15px 30px;
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.price{
+    font-size: 18px;
+    font-weight: 900;
+}
+.info-producto button{
+    border: none;
+    background: none;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+.info-producto button:hover{
+    background-color: rgb(69, 69, 69);
+    transition: .3s;
+}

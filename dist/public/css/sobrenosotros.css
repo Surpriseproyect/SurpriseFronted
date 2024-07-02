@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI';
+    user-select: none;
+}
+video {
+    pointer-events: none;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 13%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: +1;
+}
+header .logo{
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.container{
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar a{
+    position: relative;
+    font-size: 16px;
+    color: #fff;
+    margin-right: 30px;
+    text-decoration: none;
+}
+.navbar a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    bottom: -5px;
+    border-radius: 5px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: .5s ease;
+}
+.navbar a:hover:after{
+    transform: translateY(0);
+    opacity: 1;
+}
+.showcase{
+    position: absolute;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    transition: 0.5s;
+    z-index: 2;
+}
+.showcase .active{
+    right: 300px;
+}
+.showcase video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0657ee;
+    mix-blend-mode: overlay;
+}
+.text{
+    position: absolute;
+    z-index: 10;
+}
+.text h2{
+    font-size: 3em;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+.text h3{
+    font-size: 5em;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+.text p{
+    font-size: 1.1em;
+    color: #fff;
+    margin: 20px 0;
+    font-weight: 400;
+    max-width: 700px;
+}
+.text button{
+    display: inline-block;
+    font-size: 1em;
+    border: none;
+    background: #0657ee;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: 0.2s;
+    border-radius: 15px;
+}
+.text button:hover{
+    letter-spacing: 3px;
+}
+.social{
+    position: absolute;
+    z-index: 10;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social li{
+    list-style: none;
+}
+.social li a{
+    display: inline-block;
+    margin-right: 20px;
+    filter: invert(1);
+    transform: scale(0.5);
+    transition: 0.5s;
+}
+.social li a:hover{
+    transform: scale(0.5) translateY(-15px);
+}
+.menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu ul{
+    position: relative;
+}
+.menu ul li{
+    list-style: none;
+}
+.menu ul li a{
+    text-decoration: none;
+    font-size: 24px;
+    color: #111;
+}
+.menu ul li a:hover{
+    color: green;
+}
+@media (max-width: 991px){
+    .showcase,
+    .showcase header {
+        padding: 40px;
+    }
+    .text h2{
+        font-size: 3em;
+    }
+    .text h3{
+        font-size: 2em;
+    }
+}
+
+.back{
+    height: 100vh;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: +999;
+    position: absolute;
+}
+
+.back > .container{
+    height: auto;
+    padding: 20px;
+    width: 30%;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: +999;
+    position: absolute;
+}
+
+.back > .container > p, button{
+    margin-top: 20px;
+}
+
+.back > .container > button{
+    background: #0657ee;
+    border: none;
+    background: #0657ee;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: 0.2s;
+    border-radius: 15px;
+}
+
+.back > .container > button:hover{
+    background: #0059ffa2;
+    transition: 0.2s;
+}
+
+
