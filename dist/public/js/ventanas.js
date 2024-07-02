@@ -32,7 +32,7 @@ editar1.forEach(btn => {
         }
 
         console.log("Fetching user data...");
-        fetch(`http://localhost:3000/usuario/${id}`)
+        fetch(`https://surprisebackend.onrender.com/usuario/${id}`)
             .then(response => {
                 console.log("Response received:", response);
                 if (!response.ok) {
@@ -78,7 +78,7 @@ editar1.forEach(btn => {
                     rol: rol,
                     estado: estado
                 };
-                fetch(`http://localhost:3000/usuario/usuario/${id}`, {
+                fetch(`https://surprisebackend.onrender.com/usuario/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -124,7 +124,7 @@ document.getElementById("crearUsuario").addEventListener("click", (e) => {
         rol: rol,
         estado: estado
     };
-    fetch(`http://localhost:3000/usuario/usuario`, {
+    fetch(`https://surprisebackend.onrender.com/usuario`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -159,7 +159,7 @@ elimina.forEach(btn => {
         textoVentana.innerHTML = `¿Seguro que quieres eliminar la cuenta de ${nombre}?`
         let id = usuario.querySelector(".id").innerHTML
         aceptar.addEventListener("click", () => {
-        fetch(`http://localhost:3000/usuario/usuario/${id}`, {
+        fetch(`https://surprisebackend.onrender.com/usuario/${id}`, {
             method: "DELETE"
         })
         .then(res => {
@@ -204,7 +204,7 @@ editar2.forEach(btn => {
             return;
         }
         console.log("Fetching user data...");
-        fetch(`http://localhost:3000/producto/producto/${id}`)
+        fetch(`https://surprisebackend.onrender.com/producto/${id}`)
             .then(response => {
                 console.log("Response received:", response);
                 if (!response.ok) {
@@ -247,7 +247,7 @@ editar2.forEach(btn => {
                     imagen: imagen,
                     stock: stock
                 };
-                fetch(`http://localhost:3000/producto/producto/${id}`, {
+                fetch(`https://surprisebackend.onrender.com/producto/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -290,7 +290,7 @@ document.getElementById("crearProducto").addEventListener("click", (e) => {
         imagen: imagen,
         stock: stock
     };
-    fetch(`http://localhost:3000/producto/producto`, {
+    fetch(`https://surprisebackend.onrender.com/producto`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -329,7 +329,7 @@ eliminarProducto.forEach(btn => {
         textoVentana.innerHTML = `¿Seguro que quieres eliminar el producto ${nombre}?`
         let id = producto.querySelector(".id").innerHTML
         aceptar.addEventListener("click", () => {
-        fetch(`http://localhost:3000/producto/producto/${id}`, {
+        fetch(`https://surprisebackend.onrender.com/producto/${id}`, {
             method: "DELETE"
         })
         .then(res => {
@@ -351,7 +351,7 @@ pagado.forEach(btn => {
         let estado = e.target.closest(".user-list-item");
         let id = estado.querySelector(".id").innerHTML
         let pagado = document.querySelector(".pagado").innerHTML;
-        fetch(`http://localhost:3000/pedido/${id}`, {
+        fetch(`https://surprisebackend.onrender.com/pedido/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -363,7 +363,7 @@ pagado.forEach(btn => {
         .then(res => res.json())
         .then(esneider => console.log(esneider))
         .catch(error => console.log(error))
-        fetch(`http://localhost:3000/factura/factura/${id}`, {
+        fetch(`https://surprisebackend.onrender.com/factura/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -400,7 +400,7 @@ eliminarMetodo.forEach(btn => {
         textoVentana.innerHTML = `¿Seguro que quieres eliminar el metodo de pago ${nombre}?`
         let id = metopago.querySelector(".id").innerHTML
         aceptar.addEventListener("click", () => {
-        fetch(`http://localhost:3000/metopago/metopago/${id}`, {
+        fetch(`https://surprisebackend.onrender.com/metopago/${id}`, {
             method: "DELETE"
         })
         .then(res => {
@@ -428,7 +428,7 @@ eliminarProveedor.forEach(btn => {
         textoVentana.innerHTML = `¿Seguro que quieres eliminar al proveedor ${nombre}?`
         let id = proveedor.querySelector(".id").innerHTML
         aceptar.addEventListener("click", () => {
-        fetch(`http://localhost:3000/proveedor/proveedor/${id}`, {
+        fetch(`https://surprisebackend.onrender.com/proveedor/${id}`, {
             method: "DELETE"
         })
         .then(res => {
@@ -452,7 +452,7 @@ document.getElementById("crearMPago").addEventListener("click", (e) => {
     const datosMetodo = {
         tipopago: tipopago
     };
-    fetch(`http://localhost:3000/metopago/metopago`, {
+    fetch(`https://surprisebackend.onrender.com/metopago`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -483,7 +483,7 @@ document.getElementById("crearPr").addEventListener("click", (e) => {
     const datosProveedor = {
         proveedor: proveedor
     };
-    fetch(`http://localhost:3000/proveedor/proveedor`, {
+    fetch(`https://surprisebackend.onrender.com/proveedor`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -518,7 +518,7 @@ estadoUsuario.forEach(btn => {
                 estado: estado
             };
             console.log(datosEstado);
-        fetch(`http://localhost:3000/usuario/estado/${id}`, {
+        fetch(`https://surprisebackend.onrender.com/usuario/estado/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -549,7 +549,7 @@ eliminaPedido.forEach(btn => {
         textoVentana.innerHTML = `¿Seguro que quieres eliminar el pedido ${nombre}?`
         let id = pedido.querySelector(".id").innerHTML
         aceptar.addEventListener("click", () => {
-        fetch(`http://localhost:3000/pedido/${id}`, {
+        fetch(`https://surprisebackend.onrender.com/pedido/${id}`, {
             method: "DELETE"
         })
         .then(res => {
