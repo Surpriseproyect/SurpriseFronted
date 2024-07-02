@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/productos.css">
+    <title>Producto</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="/">Inicio</a>
+            <a href="/productos">Productos</a>
+            <a href="/sobrenosotros">Sobre Nosotros</a>
+        </nav>
+        <h2 class="logo">Restaurante</h2>
+    </header>
+    <div class="descarga">
+        <h2>Descubre nuestro menú y pide desde nuestra app movil</h2>
+        <button>Descarga ahora</button> 
+    </div>
+    <div class="container-items">
+        <% if (producto && producto.length > 0) { %>
+        <% producto.forEach(producto => { %>
+        <div class="item">
+            <figure>
+                <img src="<%= producto.imagen %>" alt="Producto">
+            </figure>
+            <div class="info-producto">
+                <h2><%= producto.producto %></h2>
+                <h4 class=""><%= producto.categoria %></h4>
+                <p class=""><%= producto.descripcion %></p>
+                <p class="price">$<%= producto.preciou %></p>
+            </div>
+        </div>
+        <% }) %>
+        <% } else { %>
+            <h2>No hay productos disponibles</h2>
+        <% } %>
+    </div>
+
+    <script src="js/productos.js"></script>
+</body>
+</html>

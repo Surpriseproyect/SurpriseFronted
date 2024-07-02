@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- estilo del inicio(login) -->
+    <link rel="stylesheet" href="css/login.css">
+    <!-- Incluyendo los estilos de la alerta -->
+    <link rel="stylesheet" href="plugins/alertifyjs/css/alertify.min.css" />
+    <!-- Incluyendo el tema de la alerta -->
+    <link rel="stylesheet" href="plugins/alertifyjs/css/themes/default.min.css" />
+    <title>Caspete</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="/">Inicio</a>
+            <a href="/productos">Productos</a>
+            <a href="/sobrenosotros">Sobre Nosotros</a>
+        </nav>
+        <h2 class="logo">Restaurante</h2>
+    </header>
+        <div class="background"></div>
+        <div class="container">
+            <div class="item">
+                <h2 class="logo"><i class='bx bxs-building'></i>¡Bienvenido a Nuestro Restaurante!</h2>
+                <div class="text-item">
+                    <img class="imagentienda" src="./img/imagetienda.png" alt="">
+                </div>
+            </div>
+            <div class="login-section">
+                <form>
+                <div class="form-box login">
+                    <div class="form">
+
+                        <h2>Iniciar Sesión</h2>
+
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-user-account'></i></span>
+                            <input type="email" id="correo" required>
+                            <label>Correo</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                            <input type="password" id="password" required>
+                            <label>Contraseña</label>
+                        </div>
+                        <div class="remember-password">
+                            <a class="olvido-contraseña" style="color: transparent;">¿Olvidaste tu contraseña?</a>
+                        </div>
+                        <button type="submit" class="btn" onclick="loguear();">Ingresar</button>
+                        <div>
+                            <input type="hidden" id="url" value="dsfs">
+
+                        </div>
+                        <div class="create-account">
+                            <p>¿Aún no tienes cuenta?<a href="#" class="register-link"> 
+                                Registrarse</a></p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form>
+                <div class="form-box register">
+                    <div class="form">
+                        <h2>Registrarse</h2>
+                        <div class="campo1">
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bxs-user'></i></span>
+                                <input class="identificacion" type="number" required>
+                                <label>Identificación</label>
+                            </div>
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bxs-user'></i></span>
+                                <input class="nombre" type="text" required>
+                                <label>Nombres</label>
+                            </div>
+                        </div>
+                        <div class="campo2">
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bxs-user'></i></span>
+                                <input class="telefono" type="number" required>
+                                <label>Telefono</label>
+                            </div>
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bxs-user-account'></i></span>
+                                <input class="correo" type="email" id="correoregister" required>
+                                <label>Correo</label>
+                            </div>
+                        </div>
+                        <div class="campo3">
+                            <div class="input-box">
+                                <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                                <input class="contrasena" type="password" id="passwordregister" required>
+                                <label>Contraseña</label>
+                            </div>
+                            <select class="roles">
+                                <option selected disabled>Seleccionar Rol</option>
+                                <option value="Cajero">Cajero</option>
+                                <option value="Gerente">Gerente</option>
+                            </select>
+                        </div>
+                        <div class="remember-password">
+                            <input class="terminosycondiciones" type="checkbox" required>
+                            <p>He leído y acepto <a class="terminos" href="/pdf/terminos.pdf" target="_blank">Términos y Condiciones</a></p>
+                        </div>
+                        <button type="submit" class="btn" id="registrar">Registrarse</button>
+                        <div class="create-account">
+                            <p>¿Ya tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+        <script src="plugins/alertifyjs/alertify.min.js"></script>
+        <script src="js/iniciologin.js"></script>
+</body>
+</html>
