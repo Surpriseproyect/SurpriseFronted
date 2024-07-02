@@ -12,6 +12,11 @@ const __dirname = dirname(__filename);
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, "public")));
+const corsOptions = {
+    origin: 'https://surprisefrontend.onrender.com', // Reemplaza con el origen de tu frontend
+    optionsSuccessStatus: 200 // Para algunos navegadores legacy
+};
+server.use(cors(corsOptions));
 server.set("view engine", "ejs");
 server.set("views", path.join(__dirname, 'views'));
 server.use(cors())
@@ -22,5 +27,6 @@ server.use("/", (req, res) => {
     res.render("views.error404.ejs")
 })
 server.set("port", process.env.PORT || 4000)
+
 
 export default server;
