@@ -97,7 +97,7 @@ editar1.forEach(btn => {
                 .catch(error => {
                     console.error("Fetch error:", error);
                 });
-            location.reload()
+            // location.reload()
             });
     });
 });
