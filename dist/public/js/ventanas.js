@@ -32,7 +32,7 @@ editar1.forEach(btn => {
         }
 
         console.log("Fetching user data...");
-        fetch(`https://surprisebackend.onrender.com/usuario/${id}`)
+        fetch(`https://surprisebackend.onrender.com/usuario/modificar/${id}`)
             .then(response => {
                 console.log("Response received:", response);
                 if (!response.ok) {
@@ -78,7 +78,7 @@ editar1.forEach(btn => {
                     rol: rol,
                     estado: estado
                 };
-                fetch(`https://surprisebackend.onrender.com/usuario/${id}`, {
+                fetch(`https://surprisebackend.onrender.com/usuario/modificar/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
