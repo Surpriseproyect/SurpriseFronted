@@ -84,6 +84,7 @@ url = <%  %>
         </div>
 
         <div class="col-12 contenido" id="pedidos">
+          <button class="agregar" onclick="crearPedido()">AGREGAR PEDIDO</button>
           <table>
             <thead>
               <tr>
@@ -212,28 +213,6 @@ url = <%  %>
             <% } %>
               </tbody>
             </table>
-            <select>
-                  <% usuarios.forEach(n => { %>
-                  <option value="<%= n.idusuario %>">
-                    <%= n.nombres %>
-                  </option>
-                  <% }) %>
-            </select>
-            <select>
-              <% producto.forEach(p => { %>
-              <option value="<%= p.idproducto %>">
-                <%= p.producto %>
-              </option>
-              <% }) %>
-            </select>
-            <select>
-              <% metopago.forEach(m => { %>
-              <option value="<%= m.idmetodopago %>">
-                <%= m.tipopago %>
-              </option>
-              <% }) %>
-            </select>
-            <input type="number" class="cantidadP nombreCrear">
 
             <div id="paginationControls"></div>
           </div>
@@ -568,6 +547,40 @@ url = <%  %>
             <div class="opcion">
               <button onclick="ocultarProveedor()">Cancelar</button>
               <input id="crearPr" type="submit" placeholder="Confirmar">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="crear" id="crearPedido">
+        <div class="informacion" id="info">
+        <h4>Agregar Pedido</h4>
+          <form class="datos-usuario" action="">
+            <select>
+              <% usuarios.forEach(n => { %>
+              <option value="<%= n.idusuario %>">
+              <%= n.nombres %>
+              </option>
+              <% }) %>
+            </select>
+            <select>
+              <% producto.forEach(p => { %>
+              <option value="<%= p.idproducto %>">
+                <%= p.producto %>
+              </option>
+              <% }) %>
+            </select>
+            <select>
+              <% metopago.forEach(m => { %>
+              <option value="<%= m.idmetodopago %>">
+                <%= m.tipopago %>
+              </option>
+              <% }) %>
+            </select>
+            <input type="number" class="cantidadP nombreCrear">
+            <div class="opcion">
+              <button onclick="ocultarPedido()">Cancelar</button>
+              <input id="crearPedido" type="submit" placeholder="Crear">
             </div>
           </form>
         </div>

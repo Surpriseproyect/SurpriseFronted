@@ -631,3 +631,14 @@ function ocultarProveedor(){
     let ventana = document.getElementById("crearProveedor")
     ventana.style.display = "none"
 }
+
+// Crear Pedido
+function crearPedido(){
+    let ventana = document.getElementById("crearPedido")
+    ventana.style.display = "flex"
+}
+function ocultarPedido(){
+    let ventana = document.getElementById("crearPedido")
+    ventana.style.display = "none"
+}
+
