@@ -151,7 +151,7 @@ url = <%  %>
                                let opcionesHora = { hour: 'numeric', minute: '2-digit', hour12: true };
                                let fechaFormateada = fecha.toLocaleDateString('es-CO', opcionesFecha);
                                let horaFormateada = fecha.toLocaleTimeString('es-CO', opcionesHora); %>
-                            <%= fechaFormateada %> a las <%= horaFormateada %>
+                            <%= fechaFormateada %><br><strong>Hora:</strong><%= horaFormateada %>
                         </div>
                         <div class="detail"><strong>Método de Pago: </strong><%= f.tipopago %></div>
                         <div class="detail"><strong>Total: </strong><%= f.total %></div>
@@ -159,7 +159,8 @@ url = <%  %>
                     </div>
                 </section>
                 <footer class="footer">
-                    <p>¡Gracias por tu compra! Esperamos verte pronto.</p>
+                    <p>¡Gracias por tu compra!</p>
+                    <p>Esperamos verte pronto.</p>
                 </footer>
             </div>
             <% }) %>
