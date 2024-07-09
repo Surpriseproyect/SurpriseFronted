@@ -214,14 +214,14 @@ url = <%  %>
             <% } %>
               </tbody>
             </table>
-              <% usuarios.forEach(n => { %>
-                <select name="" id="">
+            <select name="" id="">
+                  <% usuarios.forEach(n => { %>
                   <option value="<%= n.nombres %>">
                     <%= n.nombres %>
                 </select>
+                <% }) %>
                 </option>
-            <% }) %>
-            
+
             <div id="paginationControls"></div>
           </div>
 
