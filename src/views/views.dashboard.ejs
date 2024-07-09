@@ -214,13 +214,28 @@ url = <%  %>
             <% } %>
               </tbody>
             </table>
-            <select name="" id="">
+            <select>
                   <% usuarios.forEach(n => { %>
-                  <option value="<%= n.nombres %>">
+                  <option value="<%= n.idusuario %>">
                     <%= n.nombres %>
                   </option>
                   <% }) %>
-                </select>
+            </select>
+            <select>
+              <% producto.forEach(p => { %>
+              <option value="<%= p.idproducto %>">
+                <%= p.producto %>
+              </option>
+              <% }) %>
+            </select>
+            <select>
+              <% metopago.forEach(m => { %>
+              <option value="<%= m.idmetodopago %>">
+                <%= m.metopago %>
+              </option>
+              <% }) %>
+            </select>
+            <input type="number" class="cantidadP">
 
             <div id="paginationControls"></div>
           </div>
