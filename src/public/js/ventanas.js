@@ -579,7 +579,7 @@ document.getElementById("crearPe").addEventListener("click", (e) => {
         idmetodopago: metopago,
         cantidad: cantidad,
     };
-    fetch(`https://surprisebackend.onrender.com/pedido`, {
+    fetch(`https://surprisebackend.onrender.com/pedido/crear`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
