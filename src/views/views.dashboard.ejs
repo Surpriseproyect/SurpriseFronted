@@ -93,7 +93,6 @@ url = <%  %>
                 <td>Metodo de Pago</td>
                 <td>Fecha</td>
                 <td>Cantidad</td>
-                <td>Total</td>
                 <td>Estado</td>
                 <td>Opciones</td>
               </tr>
@@ -114,7 +113,6 @@ url = <%  %>
                     <%= fechaFormateada %> a las <%= horaFormateada %>
                 </td>
                 <td><%= p.cantidad %></td>
-                <td><%= p.total %></td>
                 <td><%= p.estado %></td>
                 <td class="opc_pedidos">
                   <button class="pagado" id="pagado">Pagado</button>
@@ -235,7 +233,7 @@ url = <%  %>
               </option>
               <% }) %>
             </select>
-            <input type="number" class="cantidadP">
+            <input type="number" class="cantidadP nombreCrear">
 
             <div id="paginationControls"></div>
           </div>
