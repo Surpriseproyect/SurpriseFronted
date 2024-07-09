@@ -564,6 +564,43 @@ eliminaPedido.forEach(btn => {
     })
 })
 
+// Crear Pedido
+document.getElementById("crearPedido").addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const nombre = document.querySelector(".nombrePedido").value;
+    const producto = document.querySelector(".productoPedido").value;
+    const metopago = document.querySelector(".metopagoPedido").value;
+    const cantidad = document.querySelector(".cantidadP").value;
+
+    const datosPedido = {
+        nombre: nombre,
+        producto: producto,
+        metopago: metopago,
+        cantidad: cantidad,
+    };
+    fetch(`https://surprisebackend.onrender.com/pedido`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datosPedido)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Pedido agregado:", data);
+    })
+    .catch(error => {
+        console.error("Fetch error:", error);
+    });
+    location.reload()
+});
+
 // Usuario
 function editarUsuario(){
     let ventana = document.getElementById("editarUsuario")

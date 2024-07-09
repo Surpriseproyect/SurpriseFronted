@@ -556,28 +556,28 @@ url = <%  %>
         <div class="informacion" id="info">
         <h4>Agregar Pedido</h4>
           <form class="datos-usuario" action="">
-            <select>
+            <select class="nombrePedido">
               <% usuarios.forEach(n => { %>
               <option value="<%= n.idusuario %>">
               <%= n.nombres %>
               </option>
               <% }) %>
             </select>
-            <select>
+            <select class="productoPedido">
               <% producto.forEach(p => { %>
               <option value="<%= p.idproducto %>">
                 <%= p.producto %>
               </option>
               <% }) %>
             </select>
-            <select>
+            <select class="metopagoPedido">
               <% metopago.forEach(m => { %>
               <option value="<%= m.idmetodopago %>">
                 <%= m.tipopago %>
               </option>
               <% }) %>
             </select>
-            <input type="number" class="cantidadP nombreCrear">
+            <input type="number" class="cantidadP nombreCrear" placeholder="Cantidad">
             <div class="opcion">
               <button onclick="ocultarPedido()">Cancelar</button>
               <input id="crearPedido" type="submit" placeholder="Crear">
