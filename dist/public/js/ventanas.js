@@ -574,9 +574,9 @@ document.getElementById("crearPe").addEventListener("click", (e) => {
     const cantidad = document.querySelector(".cantidadP").value;
 
     const datosPedido = {
-        nombre: nombre,
-        producto: producto,
-        metopago: metopago,
+        idusuario: nombre,
+        idproducto: producto,
+        idmetodopago: metopago,
         cantidad: cantidad,
     };
     fetch(`https://surprisebackend.onrender.com/pedido`, {
