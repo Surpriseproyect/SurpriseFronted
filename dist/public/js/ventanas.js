@@ -565,7 +565,7 @@ eliminaPedido.forEach(btn => {
 })
 
 // Crear Pedido
-document.getElementById("crearPedido").addEventListener("click", (e) => {
+document.getElementById("crearPe").addEventListener("click", (e) => {
     e.preventDefault();
 
     const nombre = document.querySelector(".nombrePedido").value;
