@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- estilo del inicio(login) -->
-    <link rel="stylesheet" href="css/login.css">
-    <!-- Incluyendo los estilos de la alerta -->
-    <link rel="stylesheet" href="plugins/alertifyjs/css/alertify.min.css" />
-    <!-- Incluyendo el tema de la alerta -->
-    <link rel="stylesheet" href="plugins/alertifyjs/css/themes/default.min.css" />
     <title>Caspete</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/login.css">
+    <!-- Estilos de AlertifyJS -->
+    <link rel="stylesheet" href="plugins/alertifyjs/css/alertify.min.css" />
+    <link rel="stylesheet" href="plugins/alertifyjs/css/themes/default.min.css" />
 </head>
 <body>
     <header class="header">
@@ -20,28 +19,28 @@
         </nav>
         <h2 class="logo">Restaurante</h2>
     </header>
-        <div class="background"></div>
-        <div class="container">
-            <div class="item">
-                <h2 class="logo"><i class='bx bxs-building'></i>¡Bienvenido a Nuestro Restaurante!</h2>
-                <div class="text-item">
-                    <img class="imagentienda" src="./img/imagetienda.png" alt="">
-                </div>
+
+    <div class="background"></div>
+    <div class="container">
+        <div class="item">
+            <h2 class="logo"><i class='bx bxs-building'></i>¡Bienvenido a Nuestro Restaurante!</h2>
+            <div class="text-item">
+                <img class="imagentienda" src="./img/imagetienda.png" alt="">
             </div>
-            <div class="login-section">
-                <form>
+        </div>
+        <div class="login-section">
+            <!-- Formulario de Iniciar Sesión -->
+            <form id="loginForm">
                 <div class="form-box login">
                     <div class="form">
-
                         <h2>Iniciar Sesión</h2>
-
                         <div class="input-box">
                             <span class="icon"><i class='bx bxs-user-account'></i></span>
                             <input type="email" id="correo" required>
                             <label>Correo</label>
                         </div>
                         <div class="input-box">
-                            <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                            <span class="icon"><i class='bx bxs-lock-alt'></i></span>
                             <input type="password" id="password" required>
                             <label>Contraseña</label>
                         </div>
@@ -49,10 +48,7 @@
                             <a class="olvido-contraseña" style="color: transparent;">¿Olvidaste tu contraseña?</a>
                         </div>
                         <button type="submit" class="btn" onclick="loguear();">Ingresar</button>
-                        <div>
-                            <input type="hidden" id="url" value="dsfs">
-
-                        </div>
+                        <input type="hidden" id="url" value="dsfs">
                         <div class="create-account">
                             <p>¿Aún no tienes cuenta?<a href="#" class="register-link"> 
                                 Registrarse</a></p>
@@ -60,7 +56,9 @@
                     </div>
                 </div>
             </form>
-            <form>
+
+            <!-- Formulario de Registro -->
+            <form id="registerForm">
                 <div class="form-box register">
                     <div class="form">
                         <h2>Registrarse</h2>
@@ -84,26 +82,10 @@
                             </div>
                             <div class="input-box">
                                 <span class="icon"><i class='bx bxs-user-account'></i></span>
-                                <input class="correo" type="email" id="correoregister" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                <input class="correo" type="email" id="correoregister" required>
                                 <label>Correo</label>
                             </div>
                         </div>
-                        <script>
-                            document.addEventListener('DOMContentLoaded', () => {
-                                const registroForm = document.getElementById('registroForm');
-                            
-                                registroForm.addEventListener('submit', (event) => {
-                                    const correoInput = document.getElementById('correoregister');
-                                    const correoValue = correoInput.value.trim().toLowerCase(); // Obtener el valor del campo y limpiarlo
-                            
-                                    // Verificar si el correo electrónico termina con "@gmail.com"
-                                    if (!correoValue.endsWith('@gmail.com')) {
-                                        alert('Por favor ingresa un correo con dominio @gmail.com');
-                                        event.preventDefault(); // Evitar que el formulario se envíe
-                                    }
-                                });
-                            });
-                            </script>
                         <div class="campo3">
                             <div class="input-box">
                                 <span class="icon"><i class='bx bxs-lock-alt'></i></span>
@@ -127,9 +109,26 @@
                     </div>
                 </div>
             </form>
-            </div>
         </div>
-        <script src="plugins/alertifyjs/alertify.min.js"></script>
-        <script src="js/iniciologin.js"></script>
+    </div>
+
+    <!-- Scripts -->
+    <script src="plugins/alertifyjs/alertify.min.js"></script>
+    <script src="js/iniciologin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const registerForm = document.getElementById('registerForm');
+
+            registerForm.addEventListener('submit', (event) => {
+                const correoRegister = document.getElementById('correoregister').value.trim().toLowerCase();
+                const dominioValido = correoRegister.endsWith('@gmail.com');
+
+                if (!dominioValido) {
+                    alert('Por favor ingresa un correo con dominio @gmail.com');
+                    event.preventDefault(); // Evitar que el formulario se envíe
+                }
+            });
+        });
+    </script>
 </body>
 </html>
