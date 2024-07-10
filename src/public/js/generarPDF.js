@@ -1,22 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let generar = document.querySelectorAll(".generar");
-    generar.forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+// Importar pdf-lib si estás usando Node.js
+const { PDFDocument, rgb, StandardFonts } = require('pdf-lib');
 
-            // Obtener el contenedor de la factura correspondiente
-            const info = e.target.closest('.container');
-            const id = info.querySelector('.id').innerText.trim();
-            const contenido = info.innerText;
+// Función para manejar la descarga del PDF
+async function descargarFactura(event) {
+  // Obtener la ID de la factura desde el atributo data-id del botón
+  const idFactura = event.target.dataset.id;
 
-            // Agregar contenido al PDF
-            doc.text(contenido, 10, 10);
+  // Aquí deberías tener el código para obtener los datos de la factura según la ID
+  // Por simplicidad, asumiremos que ya tienes los datos de la factura en alguna estructura
 
-            // Descargar el PDF con el nombre basado en la ID de la factura
-            doc.save(`surprise_factura_${id}.pdf`);
-        });
-    });
+  // Crear un nuevo documento PDF
+  const pdfDoc = await PDFDocument.create();
+  const page = pdfDoc.addPage();
+
+  // Añadir contenido a la página
+  page.drawText(`Factura ID: ${idFactura}`, { x: 50, y: 700 });
+
+  // Guardar el PDF y descargarlo
+  const pdfBytes = await pdfDoc.save();
+  const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+  const link = document.createElement('a');
+  link.href = window.URL.createObjectURL(blob);
+  link.download = `factura_${idFactura}.pdf`;
+  link.click();
+}
+
+// Agregar un evento de clic a todos los botones con clase 'pdf'
+const botonesPDF = document.querySelectorAll('.generar');
+botonesPDF.forEach(boton => {
+  boton.addEventListener('click', descargarFactura);
 });
-
-    
