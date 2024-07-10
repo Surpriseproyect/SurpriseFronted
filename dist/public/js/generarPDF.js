@@ -9,8 +9,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Crea un nuevo documento PDF
             const pdfDoc = await window.PDFLib.PDFDocument.create();
             
-            // Crea una página con ancho de 105 mm (1 mm = 1/25.4 pulgadas)
-            const page = pdfDoc.addPage([105 * 4.25, 792]); // 105 mm * 4.25 = ancho en puntos (1 punto = 1/72 pulgadas)
+            // Ajusta las dimensiones de la página para papel térmico de 80 mm de ancho
+            const pageWidth = 80 * 4.25; // 80 mm * 4.25 puntos por milímetro
+            const pageHeight = 792; // 11 pulgadas de alto (792 puntos)
+
+            const page = pdfDoc.addPage([pageWidth, pageHeight]);
 
             // Agrega contenido al PDF
             page.drawText(`Factura ID: ${facturaID}`, { x: 50, y: 700 });
@@ -25,4 +28,3 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 });
-
