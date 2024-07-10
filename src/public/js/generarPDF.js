@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const pdfDoc = await window.PDFLib.PDFDocument.create();
             
             // Ajusta las dimensiones de la página para papel térmico de 80 mm de ancho
-            const pageWidth = 90 * 4.25; // 80 mm * 4.25 puntos por milímetro
+            const pageWidth = 80 * 4.25; // 80 mm * 4.25 puntos por milímetro
             const pageHeight = 792; // 11 pulgadas de alto (792 puntos)
 
             const page = pdfDoc.addPage([pageWidth, pageHeight]);

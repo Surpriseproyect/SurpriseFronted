@@ -84,10 +84,26 @@
                             </div>
                             <div class="input-box">
                                 <span class="icon"><i class='bx bxs-user-account'></i></span>
-                                <input class="correo" type="email" id="correoregister" required>
+                                <input class="correo" type="email" id="correoregister" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                                 <label>Correo</label>
                             </div>
                         </div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', () => {
+                                const registroForm = document.getElementById('registroForm');
+                            
+                                registroForm.addEventListener('submit', (event) => {
+                                    const correoInput = document.getElementById('correoregister');
+                                    const correoValue = correoInput.value.trim().toLowerCase(); // Obtener el valor del campo y limpiarlo
+                            
+                                    // Verificar si el correo electrónico termina con "@gmail.com"
+                                    if (!correoValue.endsWith('@gmail.com')) {
+                                        alert('Por favor ingresa un correo con dominio @gmail.com');
+                                        event.preventDefault(); // Evitar que el formulario se envíe
+                                    }
+                                });
+                            });
+                            </script>
                         <div class="campo3">
                             <div class="input-box">
                                 <span class="icon"><i class='bx bxs-lock-alt'></i></span>
