@@ -1,10 +1,10 @@
 // Crea un archivo JavaScript (por ejemplo, main.js) y agrégalo a tu página HTML usando un elemento <script type="module">
 // main.js
 
-import { PDFDocument } from "pdf-lib";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const botonesGenerarPDF = document.querySelectorAll('.generar');
+document.addEventListener('DOMContentLoaded', async () => {
+    const pdfDoc = await window.PDFLib.PDFDocument.create();
+    const botonesGenerarPDF = document.querySelectorAll('.generar');
 
   botonesGenerarPDF.forEach(boton => {
     boton.addEventListener('click', async () => {
