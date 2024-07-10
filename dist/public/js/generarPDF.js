@@ -1,7 +1,7 @@
 // Crea un archivo JavaScript (por ejemplo, main.js) y agrégalo a tu página HTML usando un elemento <script type="module">
 // main.js
 
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument } from "pdf-lib";
 
 document.addEventListener('DOMContentLoaded', () => {
   const botonesGenerarPDF = document.querySelectorAll('.generar');
