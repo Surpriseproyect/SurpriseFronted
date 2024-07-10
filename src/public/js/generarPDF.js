@@ -13,44 +13,39 @@ document.addEventListener('DOMContentLoaded', async () => {
             const estado = facturaContainer.querySelector('.detail-estado').textContent;
             const footer = facturaContainer.querySelector('.footer').textContent;
 
-            // Crea un nuevo documento PDF usando jsPDF
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF({
-                orientation: 'portrait',
-                unit: 'mm',
-                format: [80, 792], // Tamaño personalizado para papel térmico de 80 mm de ancho
-            });
+            // Crea un nuevo documento PDF
+            const pdfDoc = await window.PDFLib.PDFDocument.create();
+            
+            // Ajusta las dimensiones de la página para papel térmico de 80 mm de ancho
+            const pageWidth = 90 * 4.25; // 80 mm * 4.25 puntos por milímetro
+            const pageHeight = 792; // 11 pulgadas de alto (792 puntos)
+
+            const page = pdfDoc.addPage([pageWidth, pageHeight]);
 
             // Agrega contenido al PDF
             const fontSize = 12;
-            doc.setFontSize(fontSize);
+            const textOptions = { size: fontSize };
 
-            // Título
-            doc.text('Factura', 10, 10);
+            // Titulo
+            page.drawText('Factura', { x: 50, y: 750, ...textOptions });
 
-            // Datos de la factura en tabla invisible
-            const data = [
-                [facturaID],
-                [nombreCliente],
-                [producto],
-                [fecha],
-                [metodoPago],
-                [total],
-                [estado],
-                [footer]
-            ];
-
-            doc.autoTable({
-                startY: 20,
-                head: [['Detalle', 'Valor']],
-                body: data,
-                theme: 'grid',
-                margin: { top: 15 },
-                styles: { fontSize: fontSize },
-            });
+            // Información de la factura
+            page.drawText(`${facturaID}`, { x: 50, y: 730, ...textOptions });
+            page.drawText(`${nombreCliente}`, { x: 50, y: 710, ...textOptions });
+            page.drawText(`${producto}`, { x: 50, y: 690, ...textOptions });
+            page.drawText(`${fecha}`, { x: 50, y: 670, ...textOptions });
+            page.drawText(`${metodoPago}`, { x: 50, y: 650, ...textOptions });
+            page.drawText(`${total}`, { x: 50, y: 630, ...textOptions });
+            page.drawText(`${estado}`, { x: 50, y: 610, ...textOptions });
+            page.drawText(`${footer}`, { x: 50, y: 590, ...textOptions });
 
             // Guarda el PDF y descárgalo
-            doc.save(`factura_${facturaID}.pdf`);
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = `factura_${facturaID}.pdf`;
+            link.click();
         });
     });
 });
