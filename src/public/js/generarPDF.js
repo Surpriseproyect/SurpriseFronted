@@ -1,32 +1,29 @@
-// Importar pdf-lib si estás usando Node.js
-const { PDFDocument, rgb, StandardFonts } = require('pdf-lib');
+// Crea un archivo JavaScript (por ejemplo, main.js) y agrégalo a tu página HTML usando un elemento <script type="module">
+// main.js
 
-// Función para manejar la descarga del PDF
-async function descargarFactura(event) {
-  // Obtener la ID de la factura desde el atributo data-id del botón
-  const idFactura = event.target.dataset.id;
+import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 
-  // Aquí deberías tener el código para obtener los datos de la factura según la ID
-  // Por simplicidad, asumiremos que ya tienes los datos de la factura en alguna estructura
+document.addEventListener('DOMContentLoaded', () => {
+  const botonesGenerarPDF = document.querySelectorAll('.generar');
 
-  // Crear un nuevo documento PDF
-  const pdfDoc = await PDFDocument.create();
-  const page = pdfDoc.addPage();
+  botonesGenerarPDF.forEach(boton => {
+    boton.addEventListener('click', async () => {
+      const facturaContainer = boton.closest('.container');
+      const facturaID = facturaContainer.querySelector('.id').textContent;
 
-  // Añadir contenido a la página
-  page.drawText(`Factura ID: ${idFactura}`, { x: 50, y: 700 });
+      const pdfDoc = await PDFDocument.create();
+      const page = pdfDoc.addPage();
 
-  // Guardar el PDF y descargarlo
-  const pdfBytes = await pdfDoc.save();
-  const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-  const link = document.createElement('a');
-  link.href = window.URL.createObjectURL(blob);
-  link.download = `factura_${idFactura}.pdf`;
-  link.click();
-}
+      // Agrega contenido al PDF
+      page.drawText(`Factura ID: ${facturaID}`, { x: 50, y: 700 });
 
-// Agregar un evento de clic a todos los botones con clase 'pdf'
-const botonesPDF = document.querySelectorAll('.generar');
-botonesPDF.forEach(boton => {
-  boton.addEventListener('click', descargarFactura);
+      // Guarda el PDF y descárgalo
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = `factura_${facturaID}.pdf`;
+      link.click();
+    });
+  });
 });
