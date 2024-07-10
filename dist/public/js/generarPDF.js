@@ -5,6 +5,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         boton.addEventListener('click', async () => {
             const facturaContainer = boton.closest('.container');
             const facturaID = facturaContainer.querySelector('.id').textContent;
+            const nombreCliente = facturaContainer.querySelector('.detail-nombre').textContent;
+            const producto = facturaContainer.querySelector('.detail-producto').textContent;
+            const fecha = facturaContainer.querySelector('.detail-fecha').textContent;
+            const metodoPago = facturaContainer.querySelector('.detail-metodo').textContent;
+            const total = facturaContainer.querySelector('.detail-total').textContent;
+            const estado = facturaContainer.querySelector('.detail-estado').textContent;
+            const footer = facturaContainer.querySelector('.footer').textContent;
 
             // Crea un nuevo documento PDF
             const pdfDoc = await window.PDFLib.PDFDocument.create();
@@ -16,7 +23,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             const page = pdfDoc.addPage([pageWidth, pageHeight]);
 
             // Agrega contenido al PDF
-            page.drawText(`Factura ID: ${facturaID}`, { x: 50, y: 700 });
+            const fontSize = 12;
+            const textOptions = { size: fontSize };
+
+            // Titulo
+            page.drawText('Factura', { x: 50, y: 750, ...textOptions });
+
+            // Información de la factura
+            page.drawText(`Factura ID: ${facturaID}`, { x: 50, y: 730, ...textOptions });
+            page.drawText(`Cliente: ${nombreCliente}`, { x: 50, y: 710, ...textOptions });
+            page.drawText(`Producto: ${producto}`, { x: 50, y: 690, ...textOptions });
+            page.drawText(`Fecha: ${fecha}`, { x: 50, y: 670, ...textOptions });
+            page.drawText(`Método de Pago: ${metodoPago}`, { x: 50, y: 650, ...textOptions });
+            page.drawText(`Total: ${total}`, { x: 50, y: 630, ...textOptions });
+            page.drawText(`Estado: ${estado}`, { x: 50, y: 610, ...textOptions });
+            page.drawText(`${footer}`, { x: 50, y: 610, ...textOptions });
 
             // Guarda el PDF y descárgalo
             const pdfBytes = await pdfDoc.save();

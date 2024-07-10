@@ -142,9 +142,9 @@ url = <%  %>
                 <section class="invoice">
                     <h4>Factura ID: <span class="id"><%= f.idfacturas %></span></h4>
                     <div class="invoice-details">
-                        <div class="detail"><strong>Nombre: </strong><%= f.nombres %></div>
-                        <div class="detail"><strong>Producto: </strong><%= f.producto %></div>
-                        <div class="detail"><strong>Fecha: </strong>
+                        <div class="detail-nombre"><strong>Nombre: </strong><%= f.nombres %></div>
+                        <div class="detail-producto"><strong>Producto: </strong><%= f.producto %></div>
+                        <div class="detail-fecha"><strong>Fecha: </strong>
                             <% let fecha = new Date(f.fecha);
                                let opcionesFecha = { day: '2-digit', month: '2-digit', year: 'numeric' };
                                let opcionesHora = { hour: 'numeric', minute: '2-digit', hour12: true };
@@ -152,9 +152,9 @@ url = <%  %>
                                let horaFormateada = fecha.toLocaleTimeString('es-CO', opcionesHora); %>
                             <%= fechaFormateada %><br><strong>Hora:</strong><%= horaFormateada %>
                         </div>
-                        <div class="detail"><strong>Método de Pago: </strong><%= f.tipopago %></div>
-                        <div class="detail"><strong>Total: </strong><%= f.total %></div>
-                        <div class="detail"><strong>Estado: </strong><%= f.estado %></div>
+                        <div class="detail-metodo"><strong>Método de Pago: </strong><%= f.tipopago %></div>
+                        <div class="detail-total"><strong>Total: </strong><%= f.total %></div>
+                        <div class="detail-estado"><strong>Estado: </strong><%= f.estado %></div>
                     </div>
                 </section>
                 <footer class="footer">
