@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // Crea un nuevo documento PDF
             const pdfDoc = await window.PDFLib.PDFDocument.create();
-            const page = pdfDoc.addPage();
+            
+            // Crea una página con ancho de 105 mm (1 mm = 1/25.4 pulgadas)
+            const page = pdfDoc.addPage([105 * 4.25, 792]); // 105 mm * 4.25 = ancho en puntos (1 punto = 1/72 pulgadas)
 
             // Agrega contenido al PDF
             page.drawText(`Factura ID: ${facturaID}`, { x: 50, y: 700 });
@@ -23,3 +25,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 });
+
