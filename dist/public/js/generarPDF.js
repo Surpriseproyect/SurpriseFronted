@@ -26,18 +26,31 @@ document.addEventListener('DOMContentLoaded', async () => {
             const fontSize = 12;
             const textOptions = { size: fontSize };
 
-            // Titulo
+            // Título
             page.drawText('Factura', { x: 50, y: 750, ...textOptions });
 
-            // Información de la factura
-            page.drawText(`${facturaID}`, { x: 50, y: 730, ...textOptions });
-            page.drawText(`${nombreCliente}`, { x: 50, y: 710, ...textOptions });
-            page.drawText(`${producto}`, { x: 50, y: 690, ...textOptions });
-            page.drawText(`${fecha}`, { x: 50, y: 670, ...textOptions });
-            page.drawText(`${metodoPago}`, { x: 50, y: 650, ...textOptions });
-            page.drawText(`${total}`, { x: 50, y: 630, ...textOptions });
-            page.drawText(`${estado}`, { x: 50, y: 610, ...textOptions });
-            page.drawText(`${footer}`, { x: 50, y: 590, ...textOptions });
+            // Datos de la factura en tabla invisible
+            const table = [
+                [{ text: facturaID }],
+                [{ text: nombreCliente }],
+                [{ text: producto }],
+                [{ text: fecha }],
+                [{ text: metodoPago }],
+                [{ text: total }],
+                [{ text: estado }],
+                [{ text: estado }],
+                [{ text: footer }]
+            ];
+
+            const tableOptions = {
+                x: 50,
+                y: 700,
+                width: 400,
+                drawHorizontalLine: () => false, // No dibujar líneas horizontales
+                fontSize: 12,
+            };
+
+            pdfDoc.autoTable(table, tableOptions);
 
             // Guarda el PDF y descárgalo
             const pdfBytes = await pdfDoc.save();
