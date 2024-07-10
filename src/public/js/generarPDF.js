@@ -30,14 +30,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             page.drawText('Factura', { x: 50, y: 750, ...textOptions });
 
             // Información de la factura
-            page.drawText(`Factura ID: ${facturaID}`, { x: 50, y: 730, ...textOptions });
-            page.drawText(`Cliente: ${nombreCliente}`, { x: 50, y: 710, ...textOptions });
-            page.drawText(`Producto: ${producto}`, { x: 50, y: 690, ...textOptions });
-            page.drawText(`Fecha: ${fecha}`, { x: 50, y: 670, ...textOptions });
-            page.drawText(`Método de Pago: ${metodoPago}`, { x: 50, y: 650, ...textOptions });
-            page.drawText(`Total: ${total}`, { x: 50, y: 630, ...textOptions });
-            page.drawText(`Estado: ${estado}`, { x: 50, y: 610, ...textOptions });
-            page.drawText(`${footer}`, { x: 50, y: 610, ...textOptions });
+            page.drawText(`${facturaID}`, { x: 50, y: 730, ...textOptions });
+            page.drawText(`${nombreCliente}`, { x: 50, y: 710, ...textOptions });
+            page.drawText(`${producto}`, { x: 50, y: 690, ...textOptions });
+            page.drawText(`${fecha}`, { x: 50, y: 670, ...textOptions });
+            page.drawText(`${metodoPago}`, { x: 50, y: 650, ...textOptions });
+            page.drawText(`${total}`, { x: 50, y: 630, ...textOptions });
+            page.drawText(`${estado}`, { x: 50, y: 610, ...textOptions });
+            page.drawText(`${footer}`, { x: 50, y: 590, ...textOptions });
 
             // Guarda el PDF y descárgalo
             const pdfBytes = await pdfDoc.save();
