@@ -18,11 +18,7 @@ document.getElementById("registrar").addEventListener("click", async (e) => {
     const gmail = correoRegister.endsWith('@gmail.com');
     const hotmail = correoRegister.endsWith('@hotmail.com');
 
-    if (!gmail || !hotmail) {
-        alertify.alert('Error', 'Correo Incorrecto');
-        e.preventDefault(); // Evitar que el formulario se envíe
-        return; // Asegurar que el formulario no se envíe
-    } else {
+    if (gmail || hotmail) {
         const identificacion = document.querySelector(".identificacion").value.trim();
         const nombres = document.querySelector(".nombre").value.trim();
         const telefono = document.querySelector(".telefono").value.trim();
@@ -66,6 +62,10 @@ document.getElementById("registrar").addEventListener("click", async (e) => {
             console.error("Fetch error:", error);
             alert("Ocurrió un error al registrar al usuario. Por favor, inténtelo nuevamente.");
         }
+    } else {
+        alertify.alert('Error', 'Correo Incorrecto');
+        e.preventDefault(); // Evitar que el formulario se envíe
+        return false; // Asegurar que el formulario no se envíe
     }
 });
 
