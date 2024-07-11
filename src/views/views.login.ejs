@@ -124,7 +124,7 @@
                 const dominioValido = correoRegister.endsWith('@gmail.com');
 
                 if (!dominioValido) {
-                    alertify.dominioValido('Correo Incorrecto');;
+                    alertify.dominioValido('Correo Incorrecto');
                     event.preventDefault(); // Evitar que el formulario se envíe
                 }
             });
