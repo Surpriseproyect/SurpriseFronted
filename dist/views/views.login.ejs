@@ -125,7 +125,7 @@
                 const hotmail = correoRegister.endsWith('@hotmail.com');
 
                 if (!gmail && !hotmail) {
-                    alertify.alert('Error', 'Por favor ingresa un correo con dominio @gmail.com o @hotmail.com');
+                    alertify.alert('Error', 'Correo Incorrecto');
                     event.preventDefault(); // Evitar que el formulario se envíe
                 }
             });
