@@ -13,61 +13,59 @@ loginlink.addEventListener('click', () => {
 
 // Registro de usuario
 document.getElementById("registrar").addEventListener("click", async (e) => {
-    const registerForm = document.getElementById('registerForm');
 
-            registerForm.addEventListener('submit', (event) => {
-                const correoRegister = document.getElementById('correoregister').value.trim().toLowerCase();
-                const gmail = correoRegister.endsWith('@gmail.com');
-                const hotmail = correoRegister.endsWith('@hotmail.com');
+    const correoRegister = document.getElementById('correoregister').value.trim().toLowerCase();
+    const gmail = correoRegister.endsWith('@gmail.com');
+    const hotmail = correoRegister.endsWith('@hotmail.com');
 
-                if (!gmail && !hotmail) {
-                    alertify.alert('Error', 'Correo Incorrecto');
-                    event.preventDefault(); // Evitar que el formulario se envíe
-                    return; // Asegurar que el formulario no se envíe
-                }
-            });
-    const identificacion = document.querySelector(".identificacion").value.trim();
-    const nombres = document.querySelector(".nombre").value.trim();
-    const telefono = document.querySelector(".telefono").value.trim();
-    const correo = document.querySelector(".correo").value.trim();
-    const contrasena = document.querySelector(".contrasena").value.trim();
-    const rol = document.querySelector(".roles").value.trim();
-    const terminos = document.querySelector(".terminosycondiciones").checked;
-    const estado = "Pagado";
-
-    if (!terminos) {
-        return;
-    }
-
-    const datosUsuario = {
-        identificacion,
-        nombres,
-        telefono,
-        correo,
-        contrasena,
-        rol,
-        estado
-    };
-
-    try {
-        const response = await fetch(`https://surprisebackend.onrender.com/usuario`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(datosUsuario)
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+    if (!gmail && !hotmail) {
+        alertify.alert('Error', 'Correo Incorrecto');
+        e.preventDefault(); // Evitar que el formulario se envíe
+        return; // Asegurar que el formulario no se envíe
+    } else {
+        const identificacion = document.querySelector(".identificacion").value.trim();
+        const nombres = document.querySelector(".nombre").value.trim();
+        const telefono = document.querySelector(".telefono").value.trim();
+        const correo = document.querySelector(".correo").value.trim();
+        const contrasena = document.querySelector(".contrasena").value.trim();
+        const rol = document.querySelector(".roles").value.trim();
+        const terminos = document.querySelector(".terminosycondiciones").checked;
+        const estado = "Pagado";
+    
+        if (!terminos) {
+            return;
         }
-
-        const data = await response.json();
-        console.log("Usuario registrado:", data);
-        location.reload(); // Recargar la página después de registrar
-    } catch (error) {
-        console.error("Fetch error:", error);
-        alert("Ocurrió un error al registrar al usuario. Por favor, inténtelo nuevamente.");
+    
+        const datosUsuario = {
+            identificacion,
+            nombres,
+            telefono,
+            correo,
+            contrasena,
+            rol,
+            estado
+        };
+    
+        try {
+            const response = await fetch(`https://surprisebackend.onrender.com/usuario`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datosUsuario)
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            console.log("Usuario registrado:", data);
+            location.reload(); // Recargar la página después de registrar
+        } catch (error) {
+            console.error("Fetch error:", error);
+            alert("Ocurrió un error al registrar al usuario. Por favor, inténtelo nuevamente.");
+        }
     }
 });
 
