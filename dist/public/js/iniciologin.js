@@ -18,7 +18,7 @@ document.getElementById("registrar").addEventListener("click", async (e) => {
     const gmail = correoRegister.endsWith('@gmail.com');
     const hotmail = correoRegister.endsWith('@hotmail.com');
 
-    if (!gmail && !hotmail) {
+    if (!gmail || !hotmail) {
         alertify.alert('Error', 'Correo Incorrecto');
         e.preventDefault(); // Evitar que el formulario se envíe
         return; // Asegurar que el formulario no se envíe
