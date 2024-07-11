@@ -13,7 +13,19 @@ loginlink.addEventListener('click', () => {
 
 // Registro de usuario
 document.getElementById("registrar").addEventListener("click", async (e) => {
+    const registerForm = document.getElementById('registerForm');
 
+            registerForm.addEventListener('submit', (event) => {
+                const correoRegister = document.getElementById('correoregister').value.trim().toLowerCase();
+                const gmail = correoRegister.endsWith('@gmail.com');
+                const hotmail = correoRegister.endsWith('@hotmail.com');
+
+                if (!gmail && !hotmail) {
+                    alertify.alert('Error', 'Correo Incorrecto');
+                    event.preventDefault(); // Evitar que el formulario se envíe
+                    return; // Asegurar que el formulario no se envíe
+                }
+            });
     const identificacion = document.querySelector(".identificacion").value.trim();
     const nombres = document.querySelector(".nombre").value.trim();
     const telefono = document.querySelector(".telefono").value.trim();
