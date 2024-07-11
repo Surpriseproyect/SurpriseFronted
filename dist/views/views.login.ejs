@@ -122,10 +122,11 @@
 
             registerForm.addEventListener('submit', (event) => {
                 const correoRegister = document.getElementById('correoregister').value.trim().toLowerCase();
-                const dominioValido = correoRegister.endsWith('@gmail.com');
+                const gmail = correoRegister.endsWith('@gmail.com');
+                const hotmail = correoRegister.endsWith('@hotmail.com');
 
-                if (!dominioValido) {
-                    alertify.alert('Error', 'Por favor ingresa un correo con dominio @gmail.com');
+                if (!gmail || !hotmail) {
+                    alertify.alert('Error', 'Ingresa un correo valido');
                     event.preventDefault(); // Evitar que el formulario se envíe
                     submitBtn.disabled = true;
                 } else {
