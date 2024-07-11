@@ -125,12 +125,12 @@
                 const gmail = correoRegister.endsWith('@gmail.com');
                 const hotmail = correoRegister.endsWith('@hotmail.com');
 
-                if (!gmail || !hotmail) {
-                    alertify.alert('Error', 'Ingresa un correo valido');
+                if (!gmail && !hotmail) {
+                    alertify.alert('Error', 'Ingresa un correo válido');
                     event.preventDefault(); // Evitar que el formulario se envíe
-                    submitBtn.disabled = true;
+                    regis.disabled = true; // Desactivar el botón de envío
                 } else {
-                    submitBtn.disabled = false;
+                    regis.disabled = false; // Reactivar el botón de envío si el correo es válido
                 }
             });
         });
