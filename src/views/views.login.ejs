@@ -118,7 +118,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const registerForm = document.getElementById('registerForm');
-            const regis = document.getElementById('registrar');
 
             registerForm.addEventListener('submit', (event) => {
                 const correoRegister = document.getElementById('correoregister').value.trim().toLowerCase();
@@ -126,11 +125,8 @@
                 const hotmail = correoRegister.endsWith('@hotmail.com');
 
                 if (!gmail && !hotmail) {
-                    alertify.alert('Error', 'Ingresa un correo válido');
+                    alertify.alert('Error', 'Por favor ingresa un correo con dominio @gmail.com o @hotmail.com');
                     event.preventDefault(); // Evitar que el formulario se envíe
-                    regis.disabled = true; // Desactivar el botón de envío
-                } else {
-                    regis.disabled = false; // Reactivar el botón de envío si el correo es válido
                 }
             });
         });
