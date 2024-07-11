@@ -125,7 +125,7 @@
                 const dominioValido = correoRegister.endsWith('@gmail.com');
 
                 if (!dominioValido) {
-                    alert('Por favor ingresa un correo con dominio @gmail.com');
+                    alertify('Ingrese un Correo que obtenga @gmail.com');
                     event.preventDefault(); // Evitar que el formulario se envíe
                     submitBtn.disabled = true;
                 } else {
